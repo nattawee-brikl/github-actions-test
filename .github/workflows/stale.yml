@@ -1,7 +1,8 @@
 name: 'Close stale issues'
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '* * * * *'
+    # - cron: '0 0 * * *'
 
 jobs:
   stale:
@@ -19,5 +20,5 @@ jobs:
           exempt-pr-labels: 'stale-exempt'
           remove-stale-when-updated: 'True'
           operations-per-run: 500
-          days-before-stale: 30
+          days-before-stale: 0
           days-before-close: 14
