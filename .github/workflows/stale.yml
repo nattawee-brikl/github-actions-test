@@ -1,8 +1,12 @@
 name: 'Stale inactivity PR'
+# on:
+#   push:
+#     - branch: ['main', 'dev']
+#   pull_request:
+#     types: [opened, edited]
+#   schedule:
+#     - cron: '*/2 * * * *'
 on:
-  push:
-  pull_request:
-    types: [opened, edited]
   schedule:
     - cron: '*/2 * * * *'
 
@@ -19,3 +23,5 @@ jobs:
           stale-pr-label: 'stale'
           remove-pr-stale-when-updated: true
           days-before-pr-stale: 1
+          days-before-close: -1
+          ignore-issue-updates: true
