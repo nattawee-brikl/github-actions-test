@@ -1,14 +1,13 @@
-name: 'Stale inactivity PR'
-# on:
-#   push:
-#     - branch: ['main', 'dev']
-#   pull_request:
-#     types: [opened, edited]
-#   schedule:
-#     - cron: '*/2 * * * *'
+name: 'PR-Stale'
 on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    types: [opened, edited]
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   stale:
@@ -18,7 +17,7 @@ jobs:
       - uses: actions/stale@v5
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          operations-per-run: 100
+          operations-per-run: 50
           stale-pr-message: 'PR is stale after inactivity in 60 days unless there is new activity'
           stale-pr-label: 'stale'
           remove-pr-stale-when-updated: true
