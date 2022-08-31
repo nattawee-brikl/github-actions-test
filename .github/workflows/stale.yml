@@ -3,11 +3,7 @@ on:
   pull_request:
     types: [opened, edited]
   schedule:
-    - cron: '* * * * *'
-    # - cron: '0 0 * * *'
-
-permissions:
-  pull-requests: write
+    - cron: '*/2 * * * *'
 
 jobs:
   stale:
