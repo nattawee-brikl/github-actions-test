@@ -1,5 +1,7 @@
-name: 'Close stale issues'
+name: 'Stale inactivity PR'
 on:
+  pull_request:
+    types: [opened, edited]
   schedule:
     - cron: '* * * * *'
     # - cron: '0 0 * * *'
