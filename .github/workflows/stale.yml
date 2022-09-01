@@ -1,5 +1,11 @@
 name: 'PR-Stale'
 on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    types: [opened, edited]
   schedule:
     - cron: '0 0,5,12 * * *'
 
